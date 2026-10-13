@@ -1,6 +1,6 @@
 # Gastro Editorial v1.0
 
-Plantilla estática gastronómica con HTML, CSS y JavaScript vanilla. Etapas 1 a 3 implementadas; sistema de imágenes preparado en la etapa 4, sin fotografías incorporadas. Mesa Ámbar es un negocio ficticio; carta, precios, horarios y dirección son ilustrativos.
+Plantilla estática gastronómica con HTML, CSS y JavaScript vanilla. Cinco fotografías locales integradas en la etapa 4. Licencias del risotto y pan confirmadas manualmente por el usuario el 13/10/2026; procedencia de las restantes conservada. Mesa Ámbar es un negocio ficticio.
 
 ## Probar desde VS Code
 
@@ -12,6 +12,23 @@ Plantilla estática gastronómica con HTML, CSS y JavaScript vanilla. Etapas 1 a
 6. Editar un texto en `data/negocio.js`, guardar y recargar. Para probar respaldos, vaciar temporalmente historia, categorías del menú, horarios o dirección. Restaurar luego los datos.
 
 ## Arquitectura
+
+Tecnologías: HTML5 semántico, CSS3 (variables, Flexbox y Grid) y JavaScript vanilla con scripts clásicos. Sin dependencias, backend ni paso de compilación.
+
+```text
+gastro-editorial/
+├── index.html
+├── styles.css
+├── app.js
+├── data/
+│   └── negocio.js
+├── assets/
+│   └── images/
+│       ├── README.md
+│       └── *.webp
+├── README.md
+└── .gitignore
+```
 
 - `index.html`: estructura y títulos de secciones; no contiene datos comerciales duplicados. Sus textos iniciales son respaldos genéricos.
 - `data/negocio.js`: expone `window.NEGOCIO`, con identidad, SEO, historia, menú, horarios, dirección, imágenes y contactos.
@@ -25,11 +42,26 @@ Los scripts clásicos usan `defer` y se ejecutan en orden después de analizar e
 
 Editar los datos comerciales exclusivamente en `data/negocio.js`. Los precios son números (no cadenas), y cada categoría contiene un array `platos`. Los datos opcionales ausentes se ocultan o se reemplazan por mensajes explícitos. No se muestran precios inválidos ni categorías vacías.
 
+| Información | Propiedad |
+| --- | --- |
+| Nombre, eslogan, descripción | `nombre`, `eslogan`, `descripcion` |
+| Historia | `historia` (array de párrafos) |
+| Carta, precios, moneda y aclaración | `menu.categorias`, `menu.moneda`, `menu.locale`, `menu.nota` |
+| Horarios y dirección | `horarios`, `direccion.texto` |
+| Fotografías | `imagenes.hero`, `imagenes.galeria` |
+| Contactos y mensaje de WhatsApp | `contactos` |
+| SEO | `seo.titulo`, `seo.descripcion` |
+| Aviso de demo y pie | `demo`, `avisoDemo`, `pie` |
+
+Los títulos de sección, botones y mensajes de respaldo son textos genéricos de interfaz en HTML/JavaScript, no datos comerciales. Si un cliente requiere otras etiquetas o idioma, deben editarse allí. El título y la descripción iniciales del HTML son una copia estática de SEO: sincronizarlos con `seo` antes de entregar; el sitio no genera esa copia automáticamente.
+
 Las imágenes requieren `src`, `alt`, `ancho` y `alto`; usar rutas como `assets/images/plato.webp`. La ruta válida no certifica la licencia: verificarla y documentarla antes de añadir el archivo. La imagen principal tiene carga prioritaria; la galería usa carga diferida. Un error de carga muestra un respaldo.
 
 ## Incorporar y reemplazar fotografías
 
-Esta intervención no autoriza descargar o agregar fotografías. Los siguientes ejemplos son instrucciones para cuando se apruebe el material; los archivos citados todavía no existen.
+El usuario autorizó integrar los cinco archivos locales seleccionados; no se descargaron fotografías adicionales. Los ejemplos siguientes son orientativos: sus nombres de archivo no corresponden a los archivos actuales.
+
+Configuración activa: hero-ambiente.webp en el hero; plato-editorial.webp (risotto), pan-artesanal.webp, limonada.webp y peras.webp en la galería. Los cinco archivos existen y se abrieron correctamente. Procedencia, dimensiones, pesos y método de verificación de licencias en assets/images/README.md.
 
 1. Obtener autorización, comprobar las condiciones de uso y registrar la procedencia en `assets/images/README.md`. Incluir crédito público si la licencia lo exige.
 2. Optimizar el archivo como WebP o AVIF. Como punto de partida, evaluar un hero de 1200–1600 px de ancho y una galería de 800–1200 px; ajustar según el tamaño de presentación y la densidad de pantalla. Comparar calidad y peso: no basta con cambiar la extensión.
@@ -76,7 +108,7 @@ Para reemplazar una fotografía, actualizar ruta, dimensiones, texto alternativo
 - Comprobar el texto alternativo con lector de pantalla y la navegación por teclado. Revisar consola, filtros y Escape después de incorporar material.
 - Probar temporalmente una ruta inexistente y volver a `hero: null` y `galeria: []` para revisar respaldos. Restaurar luego la configuración.
 
-Las pruebas con fotografías reales, mediciones de carga y encuadres en navegador quedan pendientes hasta incorporar material autorizado. No hay generación automática de variantes `srcset` ni compresión: preparar los archivos antes de agregarlos.
+Los archivos y sus dimensiones se comprobaron localmente; las mediciones de carga y los encuadres responsive en navegador quedan pendientes de validación manual. Las imágenes verticales de 687 px de ancho pueden perder nitidez en pantallas de alta densidad: revisar antes de solicitar variantes mayores. No hay generación automática de variantes `srcset` ni compresión: preparar los archivos antes de agregarlos.
 
 La demo bloquea todos los enlaces de contacto. Para un cliente real, establecer `demo: false`, reemplazar todos los textos ficticios y configurar contactos propios verificados. WhatsApp debe contener únicamente dígitos con código de país, sin `+` ni espacios. La validación de formato no verifica la propiedad de un número o correo.
 
@@ -84,6 +116,36 @@ El título y la descripción SEO se actualizan desde la configuración mediante 
 
 ## Alcance y pendientes
 
-Menú con filtros y navegación móvil accesible con mejora progresiva; diseño editorial implementado. Sistema de fotografías preparado, con dimensiones obligatorias, carga prioritaria/diferida y respaldos. Pendientes: material autorizado, verificación visual con fotografías y revisión final de etapa 5. Sin formulario, backend, carrito ni pagos.
+Etapa 4 aprobada por el usuario. Etapa 5, parte 1: auditoría de código y documentación realizada. Pendientes: pruebas en navegador real enumeradas abajo y aprobación antes de continuar con la parte 2. No se certifica todavía una entrega comercial final.
+
+## Modo demo
+
+`demo: true` muestra el aviso de negocio ficticio y bloquea los enlaces de contacto aunque se completen sus valores. Si la configuración no está disponible, se mantiene el comportamiento de demo por defecto. Para un cliente real, reemplazar nombre, contenido, precios, dirección, fotografías, SEO y pie; comprobar que los canales pertenecen al cliente y recién entonces usar `demo: false`. Quitar el aviso no convierte los datos ficticios en datos reales.
+
+## Recorrido de pruebas manuales
+
+1. Probar 320, 375, 768, 1024 y 1440 px. Revisar header, hero, filtros, precios, galería, horarios y footer. En consola, `document.documentElement.scrollWidth <= document.documentElement.clientWidth` debe devolver `true`. Revisar además que no haya texto recortado.
+2. Usar zoom del navegador al 200 % sin reducirlo para compensar. Comprobar reflujo, lectura, encuadres y controles. El ancho efectivo puede activar la navegación móvil.
+3. Con Tab, comprobar el enlace para saltar al contenido y el foco visible. En móvil abrir con Enter y Espacio, recorrer enlaces y cerrar con Escape incluso tras salir del header: el foco debe volver al botón. Seleccionar un enlace debe cerrar el menú y enfocar la sección. En escritorio la navegación debe permanecer visible.
+4. Recorrer los filtros con Tab y activarlos con Enter/Espacio: una sola opción tiene `aria-pressed="true"`; «Todos» restaura las categorías. Con lector de pantalla, comprobar etiquetas y anuncio del cambio.
+5. Deshabilitar JavaScript y recargar: navegación visible, botón móvil y filtros ocultos, mensaje explicativo disponible. No se promete carta comercial completa sin JavaScript.
+6. Activar movimiento reducido en el sistema o la emulación del navegador: el desplazamiento debe ser inmediato. No hay animaciones adicionales ni header sticky que tape títulos.
+7. En una copia temporal de los datos, probar categorías vacías, platos sin precio, historia/horarios ausentes, imágenes inválidas y contactos vacíos. Restaurar los datos al finalizar. No deben aparecer `undefined` ni controles inoperantes.
+8. Recargar con caché desactivada y conexión lenta: verificar las cinco imágenes, consola sin errores, espacio reservado y ausencia de saltos importantes. Revisar el contenido de los textos alternativos con lector de pantalla.
+
+Estas pruebas requieren navegador real. La revisión estática y el DOM simulado no verifican layout, orden efectivo de Tab, anuncios del lector de pantalla ni métricas de rendimiento.
+
+## Preparación para GitHub Pages (sin publicación realizada)
+
+- Mantener `index.html` en la raíz junto con CSS, scripts, `data/` y `assets/`. Conservar nombres y mayúsculas de los archivos.
+- El sitio funciona sin compilación, módulos ni `fetch`. Las rutas no comienzan con `/`, por lo que pueden resolverse bajo el subdirectorio del repositorio.
+- Antes de publicar, aprobar las pruebas manuales, sincronizar metadatos estáticos y configuración, revisar licencias y decidir si se publica la demo identificada o una personalización real.
+- Cuando exista autorización de publicación, preparar el repositorio con estos archivos y seleccionar su raíz como origen del sitio estático. La creación de repositorio, commits, push y activación de Pages son acciones posteriores, no ejecutadas en esta entrega.
+- La URL definitiva aún no existe: no se añadieron enlaces canónicos, sitemap con dominio inventado ni datos estructurados de un restaurante real. Evaluarlos cuando se conozca el destino y la identidad final.
+- Tras publicar con autorización, repetir enlaces, carga de archivos y consola en la URL alojada, incluyendo el subdirectorio de Pages.
+
+## Resultado de auditoría — 13/10/2026
+
+Se corrigió Escape fuera del header y se sincronizaron los metadatos iniciales con la demo. Jerarquía: un `h1`, secciones `h2`, categorías y bloques de ubicación `h3`, platos `h4`. Se conservaron rutas relativas, `hidden` para controles cerrados, estados ARIA, carga prioritaria/diferida y registro de licencias. El contraste de las combinaciones de texto principales se comprueba por cálculo; los bordes oliva son decorativos y no constituyen el único indicador de estado.
 
 Esta entrega no incluye commits, push ni despliegue. Sin JavaScript se conserva la estructura y se informa que debe activarse para consultar el contenido.

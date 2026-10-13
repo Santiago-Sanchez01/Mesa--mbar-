@@ -150,7 +150,7 @@
     abierto = !abierto;
     actualizarNavegacion();
   });
-  cabecera.addEventListener("keydown", evento => {
+  document.addEventListener("keydown", evento => {
     if (evento.key === "Escape" && abierto && !escritorio.matches) {
       abierto = false;
       actualizarNavegacion();

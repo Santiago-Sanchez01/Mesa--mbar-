@@ -40,9 +40,46 @@ window.NEGOCIO = {
   direccion: {
     texto: "Pasaje de la Cosecha 123, Ciudad de Ejemplo. Dirección ficticia; no corresponde a un local visitable."
   },
-  // Incorporar solo archivos locales con licencia verificada. Ejemplo de estructura:
-  // { src: "assets/images/archivo.webp", alt: "Descripción de la imagen", ancho: 1200, alto: 800 }
-  imagenes: { hero: null, galeria: [] },
+  // Procedencia y confirmaciones de licencia registradas en assets/images/README.md.
+  imagenes: {
+    hero: {
+      src: "assets/images/hero-ambiente.webp",
+      alt: "Mesa de restaurante con platos y copas iluminados por el sol, con comensales al fondo",
+      ancho: 687,
+      alto: 1031,
+      posicion: { x: 50, y: 55 }
+    },
+    galeria: [
+      {
+        src: "assets/images/plato-editorial.webp",
+        alt: "Risotto de color anaranjado con pequeñas hojas verdes en un plato blanco sobre una mesa de madera",
+        ancho: 693,
+        alto: 1023,
+        posicion: { x: 50, y: 55 }
+      },
+      {
+        src: "assets/images/pan-artesanal.webp",
+        alt: "Panes redondos de corteza dorada y enharinada sobre tela de yute",
+        ancho: 700,
+        alto: 1050,
+        posicion: { x: 50, y: 45 }
+      },
+      {
+        src: "assets/images/limonada.webp",
+        alt: "Jarra y dos copas con bebida de limón, junto a mitades de limón y ramas sobre una tela rosada",
+        ancho: 834,
+        alto: 581,
+        posicion: { x: 50, y: 50 }
+      },
+      {
+        src: "assets/images/peras.webp",
+        alt: "Peras enteras amarillas y moteadas en una bandeja de cartón sobre una mesa de madera",
+        ancho: 687,
+        alto: 1031,
+        posicion: { x: 50, y: 70 }
+      }
+    ]
+  },
   // La demo bloquea enlaces de contacto. Al personalizar, usar datos reales y demo: false.
   contactos: { email: "", telefono: "", whatsapp: "", mensajeWhatsApp: "Hola, quisiera consultar por una reserva." },
   pie: "Gastro Editorial v1.0 · Negocio ficticio de demostración."
