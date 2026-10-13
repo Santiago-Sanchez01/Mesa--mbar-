@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plantilla gastronómica de demostración. Negocio y contenido ficticios.">
+  <title>Demo gastronómica | Gastro Editorial</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="data/negocio.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <p class="demo-notice" id="demo-notice">Demostración: negocio y datos ficticios.</p>
+  <header class="site-header">
+    <a class="site-brand" href="#inicio" data-field="nombre">Demo gastronómica</a>
+    <button id="navigation-toggle" class="navigation-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" hidden><span aria-hidden="true">☰</span> <span class="navigation-label">Abrir menú</span></button>
+    <nav id="primary-navigation" aria-label="Navegación principal">
+      <ul class="navigation-list">
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#ubicacion">Horarios y ubicación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="contenido" tabindex="-1">
+    <section id="inicio" class="section hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+      <h1 id="hero-title" data-field="nombre">Demo gastronómica</h1>
+      <p data-field="eslogan" hidden></p>
+      <p data-field="descripcion" hidden></p>
+      <a class="section-link" href="#menu">Conocer el menú</a>
+      </div>
+      <div id="hero-image" class="image-panel"></div>
+    </section>
+    <section id="historia" class="section" aria-labelledby="history-title">
+      <h2 id="history-title">Nuestra historia</h2>
+      <div id="history-content"><p>La historia estará disponible próximamente.</p></div>
+    </section>
+    <section id="menu" class="section" aria-labelledby="menu-title">
+      <h2 id="menu-title">Menú</h2>
+      <p id="menu-note">Carta de demostración.</p>
+      <div id="menu-filters" class="menu-filters" role="group" aria-label="Filtrar carta por categoría" hidden></div>
+      <p id="menu-status" class="visually-hidden" role="status"></p>
+      <div id="menu-content"><p>El menú estará disponible próximamente.</p></div>
+    </section>
+    <section id="galeria" class="section" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Galería</h2>
+      <div id="gallery-content" class="gallery-grid"><p>Fotografías pendientes de incorporación.</p></div>
+    </section>
+    <section id="ubicacion" class="section" aria-labelledby="location-title">
+      <h2 id="location-title">Horarios y ubicación</h2>
+      <div class="location-grid">
+      <div class="location-block">
+      <h3>Horarios</h3>
+      <div id="hours-content"><p>Horarios por confirmar.</p></div>
+      </div>
+      <div class="location-block">
+      <h3>Ubicación</h3>
+      <address id="address-content">Ubicación por confirmar.</address>
+      </div>
+      </div>
+    </section>
+    <section id="contacto" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contacto y WhatsApp</h2>
+      <div id="contact-content"><p>Canales de contacto pendientes de configuración.</p></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p><span data-field="nombre">Demo gastronómica</span> · <span id="footer-copy">Plantilla de demostración.</span></p>
+    <a href="#inicio">Volver al inicio</a>
+  </footer>
+  <noscript><p>Activá JavaScript para ver la información del negocio y filtrar la carta. La navegación entre secciones permanece disponible. Esta página es una demostración.</p></noscript>
+</body>
+</html>
